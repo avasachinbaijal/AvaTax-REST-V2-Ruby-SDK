@@ -3,17 +3,6 @@ module AvaTax
     module ShippingVerification 
 
 
-      # Evaluates a transaction against a set of direct-to-consumer shipping regulations.
-      #
-      # This method has moved to /shipment/verify
-      # Swagger Name: AvaTaxBeverageClient	  
-      # @param companyCode [String] The company code of the company that recorded the transaction
-      # @param transactionCode [String] The transaction code to retrieve
-      # @param documentType [String] (Optional): The document type of the transaction to operate on. If omitted, defaults to "SalesInvoice"
-      # @return [Object]
-      def decrecated_verify_shipment(companyCode, transactionCode, options={})        path = "/api/v2/companies/#{companyCode}/transactions/#{transactionCode}/shippingverify"
-        get(path, options, "")      end
-
       # Removes the transaction from consideration when evaluating regulations that span multiple transactions.
       #
       # 
@@ -21,7 +10,7 @@ module AvaTax
       # @param companyCode [String] The company code of the company that recorded the transaction
       # @param transactionCode [String] The transaction code to retrieve
       # @param documentType [String] (Optional): The document type of the transaction to operate on. If omitted, defaults to "SalesInvoice"
-      # @return [Object]
+      # @return []
       def deregister_shipment(companyCode, transactionCode, options={})        path = "/api/v2/companies/#{companyCode}/transactions/#{transactionCode}/shipment/registration"
         delete(path, options, "")      end
 
@@ -32,7 +21,7 @@ module AvaTax
       # @param companyCode [String] The company code of the company that recorded the transaction
       # @param transactionCode [String] The transaction code to retrieve
       # @param documentType [String] (Optional): The document type of the transaction to operate on. If omitted, defaults to "SalesInvoice"
-      # @return [Object]
+      # @return []
       def register_shipment(companyCode, transactionCode, options={})        path = "/api/v2/companies/#{companyCode}/transactions/#{transactionCode}/shipment/registration"
         put(path, options, "")      end
 
